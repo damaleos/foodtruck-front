@@ -1,0 +1,33 @@
+<!--<div class="login">
+    <form class="custom-form" method="post">
+        <h1>Login</h1>
+        <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Usuario" required="required"/>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required"/>
+        <button type="submit" (click)="login()">Log in</button>
+    </form>
+</div>-->
+
+<div class="login-form">
+    <form class="custom-form" method="post">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+            <input type="text" [(ngModel)]="usuario" name="usuario" class="form-control" placeholder="Usuario" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="isError">
+            Usuario o password invalida.
+          </div>
+        <div class="form-group">
+            <button type="submit" (click)="login()" class="btn btn-primary btn-block">Log in</button>
+        </div>
+        <div class="clearfix">
+            <label class="float-left form-check-label"><input type="checkbox"> Remember me</label>
+            <a href="#" class="float-right">Forgot Password?</a>
+        </div>        
+    </form>
+    <!--<p class="text-center"><a r="/registracion">Create an Account</a></p>-->
+    <a routerLink="/registracion"  class="nav-item nav-link">Crear una cuenta</a>
+	
+</div>

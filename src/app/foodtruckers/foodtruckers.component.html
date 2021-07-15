@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+
+
+<div class="container-lg">
+  <div class="table-responsive">
+      <div class="table-wrapper"> 
+        <app-foodtruckdetails></app-foodtruckdetails>
+      </div>
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-8"><h2>Food Trucks <b>Listado</b></h2></div>
+              </div>
+          </div>
+          <table class="table table-bordered">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Nombre</th>
+                      <th>Tipo de servicio</th>
+                      <th>Operaciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let foodtruck of foodTrucks">
+                    <td>{{ foodtruck.id }}</td>
+                    <td>{{ foodtruck.nombre }}</td>
+                    <td>{{ foodtruck.tipoServicioNombre }}</td>
+                    <td>
+                        <a class="accept" title="Editar" data-toggle="tooltip" (click)="onPreUpdateFoodTruck(foodtruck)"><i class="material-icons">&#xe254;</i></a>
+                        <a class="delete" title="Borrar" data-toggle="tooltip" href="/foodtrucks" (click)="deleteFoodTruck(foodtruck.id)" ><i class="material-icons">&#xe5c9;</i></a>
+                    </td>
+                </tr>
+
+              </tbody>
+
+          </table>
+      </div>
+  </div>
+</div>
+

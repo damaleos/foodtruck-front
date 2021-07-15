@@ -1,0 +1,58 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<ng-container *ngIf="isAuthenticate()">
+
+    <ng-container *ngIf="isFoodTruck()">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <a [routerLink]="['/foodTruckHome']" class="navbar-brand"><i class="fa fa-cube"></i>Food Truck <b>Page</b></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collection of nav links, forms, and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                <div class="navbar-nav">
+                    <a [routerLink]="['/foodTruckHome']" class="nav-item nav-link active">Home</a>
+                    <a [routerLink]="['/FTGestionReservas']"  routerLinkActive="active" class="nav-item nav-link">Gestion de reservas</a>
+                    <a [routerLink]="['/foodtrucks']" routerLinkActive="active" class="nav-item nav-link">Food Trucks</a>
+                    <a [routerLink]="['/perfil']" routerLinkActive="active" class="nav-item nav-link">Perfil</a>
+                    <a href="#" class="nav-item nav-link">Ayuda</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    {{ getUserId() }}
+                    <a class="accept" title="Logout" data-toggle="tooltip" (click)="onLogout()">
+                        <i class="material-icons">&#xe879;</i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </ng-container>
+
+    <ng-container *ngIf="isOrgEventos()">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <a [routerLink]="['/organizadorHome']" class="navbar-brand"><i class="fa fa-cube"></i>Organizador Eventos <b>Page</b></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collection of nav links, forms, and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+                <div class="navbar-nav">
+                    <a [routerLink]="['/organizadorHome']" class="nav-item nav-link active">Home</a>
+                    <a [routerLink]="['/FTGestionReservas']"  routerLinkActive="active" class="nav-item nav-link">Buscador de Food Trucks</a>
+                    <a [routerLink]="['/foodtrucks']" routerLinkActive="active" class="nav-item nav-link">Servicios</a>
+                    <a [routerLink]="['/foodtrucks']" routerLinkActive="active" class="nav-item nav-link">Eventos</a>
+                    <a [routerLink]="['/perfil']" routerLinkActive="active" class="nav-item nav-link">Perfil</a>
+                    <a href="#" class="nav-item nav-link">Ayuda</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    {{ getUserId() }}
+                    <a class="accept" title="Logout" data-toggle="tooltip" (click)="onLogout()">
+                        <i class="material-icons">&#xe879;</i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </ng-container>
+
+    
+</ng-container>

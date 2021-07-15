@@ -1,0 +1,38 @@
+
+<div class="container-xl">
+	<div class="row">
+		<div class="col-md-8 mx-auto">
+			<div class="contact-form">
+				<h5 >Perfil</h5>
+				<form #formProfile="ngForm" (ngSubmit)="updateProfile(formProfile)">        
+                    <div class="form-group">
+						<label for="inputEmail">Usuario</label>
+						<input type="text" disabled id="idUsuario" name="idUsuario" class="form-control" placeholder="Nombre" [(ngModel)]="this.usuario.idUsuario">
+                    </div>
+                    <div class="form-group">
+						<label for="inputEmail">Email</label>
+						<input type="text" #email="ngModel" id="email" name="email" class="form-control" placeholder="Email" [(ngModel)]="this.usuario.email" required minlength="8" maxlength="30">
+					</div>
+					<div class="alert alert-danger" role="alert" *ngIf="email.touched && !email.valid">
+						<div *ngIf="email.errors.required">Email es requerido</div>
+						<div *ngIf="email.errors.minlength">Email debe tener al menos 8 caracteres</div>
+						<div *ngIf="email.errors.maxlength">Email debe tener maximo 30 caracteres</div>
+					</div>
+                    <div class="form-group">
+						<label for="inputEmail">Nueva Password</label>
+						<input type="password" #password="ngModel" id="password" name="password" class="form-control" [(ngModel)]="this.usuario.password" required minlength="3" maxlength="10">
+					</div>
+					<div class="alert alert-danger" role="alert" *ngIf="password.touched && !password.valid">
+						<div *ngIf="password.errors.required">Password es requerido</div>
+						<div *ngIf="password.errors.minlength">Password debe tener al menos 3 caracteres</div>
+						<div *ngIf="password.errors.maxlength">Password debe tener maximo 10 caracteres</div>
+					</div>
+					<div class="alert alert-danger" role="alert" *ngIf="isError">
+						{{msgError}}
+					  </div>
+					<input type="submit" class="btn btn-primary" value="Guardar">
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

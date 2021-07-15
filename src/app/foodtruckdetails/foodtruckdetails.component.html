@@ -1,0 +1,51 @@
+
+<div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{!this.foodtrucktService.selectedFoodTruck.id ? 'Nuevo Food Truck' : 'Actualizar Food Truck'}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="form-book" #form="ngForm" (ngSubmit)="onSaveFoodTruck(form)">
+            <input type="hidden" id="id" name="id" class="form-control" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.id">
+                <div class="form-group col-md-6">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.nombre">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="idioma">Tipo de Servicio</label>
+                    <select name="tipoServicio" id="tipoServicio" class="form-control" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.tipoServicio">
+                        <!--<option value="1">1</option>
+                        <option value="2">2</option>-->
+                        <option *ngFor="let tipoServicio of tiposServicios" [value]="tipoServicio.id" >
+                            {{tipoServicio.nombre}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="precio">Descripcion</label>
+                    <textarea type="text" rows="3" id="descripcion" name="descripcion" class="form-control" placeholder="Descripcion" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.descripcion">
+                    </textarea>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="precio">URL</label>
+                    <input type="text" id="url" name="url" class="form-control" placeholder="URL" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.url">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="precio">whatsapp</label>
+                    <input type="text" id="whatsapp" name="whatsapp" class="form-control" placeholder="Whatsapp" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.whatsapp">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="precio">twitter</label>
+                    <input type="text" id="twitter" name="twitter" class="form-control" placeholder="Twitter" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.twitter">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="precio">Instagram</label>
+                    <input type="text" id="instagram" name="instagram" class="form-control" placeholder="Instagram" [(ngModel)]="this.foodtrucktService.selectedFoodTruck.instagram">
+                </div>
+            <button type="submit" class="btn btn-primary float-right">Guardar</button>
+          </form>
+        </div>
+      </div>
